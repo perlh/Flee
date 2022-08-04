@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "EasyTools",
+  "version": "1.0.0",
+  "description": "EasyTools，目前包含解码助手，目前支持md5、base64、url编码和16进制转字符串、Unicode编码",
+  "author": "HSM",
+  "action": {
+    "default_icon": {
+      "16": "static/img/logo.png",
+      "24": "static/img/logo.png",
+      "32": "static/img/logo.png"
+    },
+    "default_title": "EasyTools",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "static/js/background.js"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["static/js/index.js"],
+      "matches": ["https://*.hsm.cool/*", "https://*.hsm.cool/*"],
+      "run_at": "document_end"
+    }
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
+
+  "icons": {
+    "16": "static/img/logo.png",
+    "19": "static/img/logo.png",
+    "38": "static/img/logo.png",
+    "48": "static/img/logo.png",
+    "128": "static/img/logo.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["*/img/xxx.png", "*/img/xxx2.png"],
+
+      "matches": ["https://*.hsm.cool/*", "https://*.hsm.cool/*"]
+    }
+  ]
+}
