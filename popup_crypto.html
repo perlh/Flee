@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src * 'unsafe-inline'"
+    />
+    <style>
+      html {
+        min-height: 50rem;
+        min-width: 35rem;
+        background: white;
+      }
+      .decode-nav {
+        height: 1.3rem;
+        /* font-size: 1rem; */
+      }
+    </style>
+    <link rel="stylesheet" href="static/css/bootstrap.css" />
+
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <nav
+      class="decode-nav navbar navbar-expand-sm navbar-expand-lg navbar-expand-md navbar-expand navbar-light border border-dark"
+      style="padding: 0.9rem; background-color: #dcdcdc"
+    >
+      <ul class="navbar-nav" style="padding-top: 0.6rem; padding-bottom: 0">
+        <li class="nav-item" style="padding-bottom:.5rem;border: .1rem;" >
+            <a class="nav-link"  href="/popup.html">常用</a>
+        </li>
+        <li class="nav-item" >
+            <a class="nav-link"  href="/popup_decode.html">编码</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/popup_json.html">ESJSON</a>
+        </li> -->
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="/popup_crypto.html">加密</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/popup_about.html">关于</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="card" style="margin: 0.5rem">
+      <div class="card-header" style="padding: 0.4rem">
+        <span class="badge"> 
+            <select id="crypto-select">
+                <option selected value="0">AES加密/解密</option>
+                <option value="1">AES加密/解密</option>
+                <option value="2">Rabbit加密解密</option>
+                <option value="3">TripleDes加密解密</option>
+            </select>
+        </span>
+      </div>
+      <div class="card-body" style="padding: 0%">
+        <div class="container-fluid">
+          <!-- <div class="row">
+            <div class="col-12">
+              <span class="badge badge-pill badge-info">JSON-GET互转</span>
+            </div>
+          </div> -->
+          <div class="row" style="margin-top: 0.4rem">
+            <div class="col-12">
+              <textarea
+                id="crypto_input"
+                class="form-control"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <div
+            class="row text-center"
+            style="padding-top: 0.6rem; padding-bottom: 0.6rem"
+          >
+            <div
+              class="col-2"
+              style="
+                padding-top: 0.5rem;
+                padding-left: 0.5rem;
+                padding-right: 0rem;
+              "
+            >
+              加密秘钥:
+            </div>
+            <div class="col-6" style="padding-left: 0rem; padding-right: 0%">
+              <input
+
+                type="email"
+                class="form-control"
+                placeholder="密钥输入"
+                id="crypto-key"
+              />
+            </div>
+            <div
+              class="col-4"
+              style="
+                padding-left: 0.8rem;
+                text-align: left;
+                padding-top: 0.2rem;
+              "
+            >
+              <!-- <div class="btn-group btn-group-sm"> -->
+              <button type="button" id="button-encode" class="btn btn-sm btn-primary">加密</button>
+              <button type="button" id="button-decode" class="btn btn-sm btn-success">解密</button>
+              <!-- <button type="button" class="btn btn-primary">位置转换</button> -->
+              <!-- </div> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <textarea
+                id="crypto-output"
+                class="form-control"
+                rows="5"
+              ></textarea>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="static/js/jquery-3.5.1.js"></script>
+
+    <script src="static/js/bootstrap/bootstrap.js"></script>
+   
+    <script src="static/js/CryptoJS/components/core-min.js"></script>
+    <script src="static/js/CryptoJS/components/md5-min.js"></script>
+    <script src="static/js/CryptoJS/components/evpkdf-min.js"></script>
+    <script src="static/js/CryptoJS/components/cipher-core-min.js"></script>
+    <script src="static/js/CryptoJS/components/enc-base64-min.js"></script>
+    <script src="static/js/CryptoJS/components/enc-utf16-min.js"></script>
+    <script src="static/js/CryptoJS/components/format-hex-min.js"></script>
+    <script src="static/js/CryptoJS/components/hmac-min.js"></script>
+    <script src="static/js/CryptoJS/components/lib-typedarrays-min.js"></script>
+    <script src="static/js/CryptoJS/components/mode-cfb-min.js"></script>
+    <script src="static/js/CryptoJS/components/mode-ctr-gladman-min.js"></script>
+    <script src="static/js/CryptoJS/components/mode-ctr-min.js"></script>
+    <script src="static/js/CryptoJS/components/mode-ecb-min.js"></script>
+    <script src="static/js/CryptoJS/components/mode-ofb-min.js"></script>
+    <script src="static/js/CryptoJS/components/pad-ansix923-min.js"></script>
+    <script src="static/js/CryptoJS/components/pad-iso10126-min.js"></script>
+    <script src="static/js/CryptoJS/components/pad-iso97971-min.js"></script>
+    <script src="static/js/CryptoJS/components/pad-nopadding-min.js"></script>
+    <script src="static/js/CryptoJS/components/pad-zeropadding-min.js"></script>
+    <script src="static/js/CryptoJS/components/pbkdf2-min.js"></script>
+    <script src="static/js/CryptoJS/components/rabbit-legacy-min.js"></script>
+    <script src="static/js/CryptoJS/components/rabbit-min.js"></script>
+    <script src="static/js/CryptoJS/components/rc4-min.js"></script>
+    <script src="static/js/CryptoJS/components/ripemd160-min.js"></script>
+    <script src="static/js/CryptoJS/components/sha1-min.js"></script>
+    <script src="static/js/CryptoJS/components/sha256-min.js"></script>
+    <script src="static/js/CryptoJS/components/tripledes-min.js"></script>
+    <script src="static/js/CryptoJS/components/x64-core-min.js"></script>
+    <script src="static/js/CryptoJS/components/aes-min.js"></script>
+    <script src="static/js/CryptoJS/components/sha224-min.js"></script>
+    <script src="static/js/CryptoJS/components/sha3-min.js"></script>
+    <script src="static/js/CryptoJS/components/sha512-min.js"></script>
+    <script src="static/js/CryptoJS/components/sha384-min.js"></script>
+
+    <script type="text/javascript" src="static/js/lib/crypto.js"></script>
+
+  </body>
+</html>

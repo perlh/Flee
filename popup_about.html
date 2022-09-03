@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src * 'unsafe-inline'"
+    />
+    <style>
+      html {
+        min-height: 40rem;
+        min-width: 35rem;
+        background: white;
+        
+      }
+      .decode-nav {
+        height: 1.3rem;
+        /* font-size: 1rem; */
+      }
+    </style>
+    <link rel="stylesheet" href="static/css/bootstrap.css" />
+
+    <script src="static/js/jquery-3.5.1.js"></script>
+
+    <script src="static/js/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+
+
+
+
+
+    <nav class="decode-nav navbar navbar-expand-sm navbar-expand-lg navbar-expand-md navbar-expand navbar-light border border-dark" style="padding: .9rem;background-color: #DCDCDC;">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link"  href="/popup.html">常用</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="/popup_decode.html">编码</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link"  href="/popup_json.html">ESJSON</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/popup_crypto.html">加密</a>
+        </li> -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/popup_about.html">关于</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+
+    <div class="container">
+      <!-- <div class="row"> -->
+      <div class="card" style="margin-top: 1rem">
+        <div class="card-body">
+          <h4 class="card-title">About</h4>
+          <p><span class="badge badge-pill badge-primary">Name</span>: EasyDecode</p>
+          <p><span class="badge badge-pill badge-primary">version</span>: 1.0.1</p>
+          <p><span class="badge badge-pill badge-primary">description</span>: 提供高效的编码转换，支持base64,base32,md5,sha256,sha512,url编码，unicode编码，utf8编码，morse编码，16进制转字符串
+          </p>
+          <p><span class="badge badge-pill badge-primary">email</span>: hsmcool@163.com</p>
+          <!-- <p>owner: jjusec</p> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- <div class="row"> -->
+      <div class="card" style="margin-top: 2rem">
+        <div class="card-body">
+          <h4 class="card-title">Supports</h4>
+          <p><span class="badge badge-pill badge-primary">md5</span></p>
+          <p><span class="badge badge-pill badge-primary">sha1</span></p>
+          <p><span class="badge badge-pill badge-primary">sha3</span></p>
+          <p><span class="badge badge-pill badge-primary">sha256</span></p>
+          <p><span class="badge badge-pill badge-primary">sha384</span></p>
+          <p><span class="badge badge-pill badge-primary">sha512</span></p>
+          <p><span class="badge badge-pill badge-primary">morse</span></p>
+          <p><span class="badge badge-pill badge-primary">base64</span></p>
+          <p><span class="badge badge-pill badge-primary">base32</span></p>
+          <p><span class="badge badge-pill badge-primary">url decode</span></p>
+          <p><span class="badge badge-pill badge-primary">unicode decode</span></p>
+          <p><span class="badge badge-pill badge-primary">utf-8 decode</span></p>
+          <p><span class="badge badge-pill badge-primary">hex2string</span></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="static/js/popum.js"></script>
+  </body>
+</html>

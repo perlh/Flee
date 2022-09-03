@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src * 'unsafe-inline'"
+    />
+    <style>
+      html {
+        min-height: 50rem;
+        min-width: 35rem;
+        background: white;
+      }
+      .decode-nav {
+        height: 1.3rem;
+        /* font-size: 1rem; */
+      }
+    </style>
+    <link rel="stylesheet" href="static/css/bootstrap.css" />
+
+    <script src="static/js/jquery-3.5.1.js"></script>
+
+    <script src="static/js/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <nav class="decode-nav navbar navbar-expand-sm navbar-expand-lg navbar-expand-md navbar-expand navbar-light border border-dark" style="padding: .9rem;background-color: #DCDCDC;">
+      <ul class="navbar-nav" style="padding-top:.6rem;padding-bottom:0;">
+        <li class="nav-item" style="padding-bottom:.5rem;border: .1rem;">
+          <a class="nav-link"  href="/popup.html">常用</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="/popup_decode.html">编码</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"  href="/popup_json.html">ESJSON</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/popup_crypto.html">加密</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/popup_about.html">关于</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <div class="card" style="margin: .5rem;margin-top: 1rem;">
+      <div class="card-header" style="padding: .4rem;"><span class="badge badge-secondary">JSON格式化校验</span></div>
+      <div class="card-body" style="padding: 0%;">
+        <div class="container-fluid">
+          <div
+            class="row"
+            style="margin-bottom: 0.5rem; margin-top: 0.5rem; padding-left: 0.8rem"
+          >
+            <div class="col-3" style="padding: 0.2rem">
+              <button
+                type="button"
+                id="check-json-button"
+                class="btn btn-sm btn-block btn-primary"
+                style="font-size: 0.7rem"
+              >
+                格式化校验
+              </button>
+            </div>
+            <div class="col-9 offset-9"></div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <textarea
+                id="check-json-input"
+                class="form-control"
+                rows="7"
+                placeholder="请输入JSON字符串"
+              ></textarea>
+              <br>
+              <!-- <hr /> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12" >
+              <p>正确</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- <div class="card" style="margin: .5rem;">
+      <div class="card-header" style="padding: .4rem;"><span class="badge badge-secondary">JSON-GET互转</span></div>
+      <div class="card-body" style="padding: 0%;">
+        <div class="container-fluid">
+          <div
+            class="row"
+            style="margin-bottom: 0.5rem; margin-top: 0.5rem; padding-left: 0.8rem"
+          >
+            <div class="col-3" style="padding: 0.2rem">
+              <button
+                type="button"
+                class="btn btn-sm btn-block btn-primary"
+                style="font-size: 0.7rem"
+              >
+                GET转JSON
+              </button>
+            </div>
+            <div class="col-3" style="padding: 0.2rem">
+              <button
+                type="button"
+                class="btn btn-sm btn-block btn-success"
+                style="font-size: 0.7rem"
+              >
+                JSON转GET
+              </button>
+            </div>
+            <div class="col-6 offset-6"></div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <textarea
+                id="unicode_output"
+                class="form-control"
+                rows="5"
+                placeholder="请输入JSON字符串"
+              ></textarea>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+<!-- 
+    <div class="card" style="margin: .5rem;">
+      <div class="card-header" style="padding: .4rem;"><span class="badge badge-secondary">JSON-XML互转</span></div>
+      <div class="card-body" style="padding: 0%;">
+        <div class="container-fluid">
+          <div
+            class="row"
+            style="margin-bottom: 0.5rem; margin-top: 0.5rem; padding-left: 0.8rem"
+          >
+            <div class="col-3" style="padding: 0.2rem">
+              <button
+                type="button"
+                class="btn btn-sm btn-block btn-primary"
+                style="font-size: 0.7rem"
+                id = "json2xml-button"
+              >
+              JSON转XML
+              </button>
+            </div>
+            <div class="col-3" style="padding: 0.2rem">
+              <button
+                type="button"
+                class="btn btn-sm btn-block btn-success"
+                style="font-size: 0.7rem"
+                id="xml2json-button"
+              >
+                XML转JSON
+              </button>
+            </div>
+            <div class="col-6 offset-6"></div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <textarea
+                id="json2xml-input"
+                class="form-control"
+                rows="5"
+                placeholder="请输入JSON字符串"
+              ></textarea>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    
+    <script type="text/javascript" src="static/js/lib/json.js"></script>
+  </body>
+</html>
