@@ -36,12 +36,12 @@
         <!-- <li class="nav-item">
           <a class="nav-link" href="/popup_json.html">ESJSON</a>
         </li> -->
-        <!-- <li class="nav-item active">
+        <li class="nav-item active">
           <a class="nav-link" href="/popup_crypto.html">加密</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/popup_about.html">关于</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/popup_about.html">关于</a>
+        </li> -->
       </ul>
     </nav>
 
@@ -49,27 +49,49 @@
       <div class="card-header" style="padding: 0.4rem">
         <span class="badge"> 
             <select id="crypto-select">
-                <option selected value="0">AES加密/解密</option>
-                <option value="1">AES加密/解密</option>
-                <option value="2">Rabbit加密解密</option>
-                <option value="3">TripleDes加密解密</option>
+                <!-- <option selected value="0">AES加密/解密</option> -->
+                <option selected  value="1">DES加密/解密</option>
             </select>
         </span>
       </div>
       <div class="card-body" style="padding: 0%">
         <div class="container-fluid">
-          <!-- <div class="row">
-            <div class="col-12">
-              <span class="badge badge-pill badge-info">JSON-GET互转</span>
-            </div>
-          </div> -->
           <div class="row" style="margin-top: 0.4rem">
             <div class="col-12">
               <textarea
-                id="crypto_input"
+                id="crypto-input"
                 class="form-control"
                 rows="5"
               ></textarea>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 0.4rem">
+            <div class="col-7 text-left">
+              <span>mode:</span>
+              <span class="badge"> 
+                <select id="crypto-mode">
+                    <option selected value="ECB">ECB</option>
+                    <option value="CBC">CBC</option>
+                    <option value="CFB">CFB</option>
+                    <option value="CTR">CTR</option>
+                    <option value="OFB">OFB</option>
+                </select>
+            </span>
+            <span>padding:</span>
+            <span class="badge"> 
+              <select id="crypto-padding">
+                  <option selected value="Pkcs7">Pkcs7</option>
+                  <option value="Iso97971">Iso97971</option>
+                  <option value="AnsiX923">AnsiX923</option>
+                  <option value="Iso10126">Iso10126</option>
+                  <option value="ZeroPadding">ZeroPadding</option>
+                  <option value="NoPadding">NoPadding</option>
+              </select>
+          </span>
+
+            </div>
+            <div class="col-5">
+         <input type="" class="form-control" placeholder="iv" id="crypto-iv"/>
             </div>
           </div>
           <div
@@ -86,12 +108,12 @@
             >
               加密秘钥:
             </div>
-            <div class="col-6" style="padding-left: 0rem; padding-right: 0%">
+            <div class="col-6" style="padding-left: 0rem; padding-right: 0%;height: 80%;">
               <input
 
                 type="email"
                 class="form-control"
-                placeholder="密钥输入"
+                placeholder="key"
                 id="crypto-key"
               />
             </div>
@@ -123,6 +145,10 @@
         </div>
       </div>
     </div>
+    <!-- <div class="container">
+      OFB和CTR不需要填充
+
+    </div> -->
     <script src="static/js/jquery-3.5.1.js"></script>
 
     <script src="static/js/bootstrap/bootstrap.js"></script>
