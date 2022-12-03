@@ -9,6 +9,9 @@
 ## 编码
 ![EasyETools](docs/decode.png)
 
+## 加密
+
+![Crypto](docs/crypto.png)
 
 
 # 安装插件
