@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "EasyDecode",
+  "name": "Flee",
   "version": "1.0.1",
   "description": "Decode | Encode,Contains base64,base32,md5,sha256,sha512",
   "author": "Heshuming",
@@ -10,7 +10,7 @@
       "24": "static/img/logo.png",
       "32": "static/img/logo.png"
     },
-    "default_title": "EasyDecode",
+    "default_title": "Flee",
     "default_popup": "popup.html"
   },
 
