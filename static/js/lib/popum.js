@@ -1,3 +1,30 @@
+// 关于本地存储的相关代码
+
+// 保存数据到本地存储
+function saveToLocalStorage(key, value) {
+  localStorage.setItem(key, value);
+}
+// 从本地存储中获取数据
+function getFromLocalStorage(key) {
+  var value = localStorage.getItem(key);
+  if (value) {
+    return value;
+  }
+  return null;
+}
+
+// 从本地存储中移除数据
+function removeFromLocalStorage(key) {
+  localStorage.removeItem(key);
+}
+
+// 清空本地存储中的所有数据
+function clearLocalStorage() {
+  localStorage.clear();
+}
+
+
+
 
 
 // ============== Main ==============
@@ -16,6 +43,12 @@ function mainEncode() {
   clearForm();
   var str = $("#input_text").val();
   
+
+  res = saveToLocalStorage("input_text",str);
+  saveToLocalStorage("opration","encode");
+  
+
+
   if(str== ""){
     $("#base64_output").val("");
     $("#md5_output").val("");
@@ -74,6 +107,10 @@ function mainEncode() {
 function mainDecode() {
   clearForm();
   var str = $("#input_text").val();
+
+  res = saveToLocalStorage("input_text",str);
+  saveToLocalStorage("opration","decode");
+  
   // base64
   try {
     // var decodeString = base64.decode(str);
@@ -124,3 +161,25 @@ btnClick.onclick = mainDecode;
 
 let btnClick2 = document.getElementById("onButtonEncode");
 btnClick2.onclick = mainEncode;
+
+// alert("hello")
+
+// 尝试查询本地
+result = getFromLocalStorage("input_text");
+// alert(result);
+if(result != null){
+  // 提前执行历史操作
+  
+  $("#input_text").val(result);
+  // 操作
+  opration = getFromLocalStorage("opration");
+  
+  if(opration=="decode"){
+    mainDecode();
+  }
+  if(opration=="encode"){
+    mainEncode();
+  }
+  
+}
+
