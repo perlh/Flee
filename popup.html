@@ -30,11 +30,15 @@
         <a class="nav-link"  href="/popup.html">常用</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="/popup_decode.html">编码</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link"  href="/popup_crypto.html">加密</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="/popup_decode.html">编码</a>
+      </li>
+<!--       
+      <li class="nav-item">
+        <a class="nav-link"  href="/popup_crypto.html">清空</a>
+      </li> -->
       <!-- <li class="nav-item">
         <a class="nav-link" href="/popup_about.html">关于</a>
       </li> -->
@@ -42,21 +46,28 @@
   </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12" style="margin-top: 1rem;"></div>
+    <div class="col-12" style="margin-top: .7rem;"></div>
   </div>
   <div class="row">
     <div class="col-10" style="margin-bottom: .5rem;padding-right: 0;">
-      <textarea id="input_text" class="form-control" placeholder="请输入要转换的内容" rows="3"></textarea>
+      <!-- 输入框 -->
+      <textarea id="input_text" class="form-control" placeholder="请输入要转换的内容" rows="4"></textarea>
     </div>
-    <div class="col-2" style="margin-bottom: .5rem;padding:.5rem;">
+    <div class="col-2" style="margin-bottom: .2rem;padding:.2rem;">
       <div class="container">
         <div class="row">
-          <button type="button" id="onButtonEncode" class="btn btn-sm btn-block btn-primary">编 码</button>
+          <button  type="button" id="onButtonEncode" class="btn btn-sm btn-block btn-success ">Encode</button>
         </div>
-        <div class="row" style="height: .5rem"></div>
+        <div class="row" style="height: .3rem"></div>
         <div class="row">
-          <button  type="button" id="onButtonDecode" class="btn btn-sm btn-block btn-success ">解 码</button>
+          <button type="button" id="onButtonDecode" class="btn btn-sm btn-block btn-primary">Decode</button>
         </div>
+        <div class="row" style="height: .3rem"></div>
+        <div class="row">
+          <button type="button" id="onEmpty" class="btn btn-sm btn-block btn-info">Empty</button>
+        </div>
+        
+       
       </div>
     </div>
   </div>
@@ -127,4 +138,8 @@
   <script src="static/js/DecodeJS/hex2string.js"></script>
   <script src="static/js/DecodeJS/unicode.js"></script>
 <script type="text/javascript" src="static/js/lib/popum.js"></script>
+<script>
+
+
+</script>
 </html>

@@ -30,6 +30,7 @@ function clearLocalStorage() {
 // ============== Main ==============
 
 function clearForm() {
+  // 清空输出框
   $("#base64_output").val("");
   $("#md5_output").val("");
   $("#utf-8_output").val("");
@@ -156,20 +157,39 @@ function mainDecode() {
   //   decodeURIComponent(x);
 }
 
+function onEmptyStart(){
+  // empty
+  // alert("test");
+  // 清空本地存储
+  removeFromLocalStorage("opration");
+  removeFromLocalStorage("input_text");
+  // 清空输出框
+  clearForm();
+  // 清空输入框
+  $("#input_text").val("");
+  
+
+}
+
+
+
+
 let btnClick = document.getElementById("onButtonDecode");
 btnClick.onclick = mainDecode;
 
 let btnClick2 = document.getElementById("onButtonEncode");
 btnClick2.onclick = mainEncode;
 
-// alert("hello")
+
+let onEmpty = document.getElementById("onEmpty");
+onEmpty.onclick = onEmptyStart;
+// // alert("hello")
 
 // 尝试查询本地
 result = getFromLocalStorage("input_text");
 // alert(result);
 if(result != null){
   // 提前执行历史操作
-  
   $("#input_text").val(result);
   // 操作
   opration = getFromLocalStorage("opration");
