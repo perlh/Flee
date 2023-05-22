@@ -12,9 +12,17 @@
       }
       .decode-nav{
         height: 1.3rem;
+        /* border-color: #3C763D; */
         /* font-size: 1rem; */
         
       }
+      .navbar-nav .nav-link {
+      padding: 0.1rem .1rem;
+      line-height: .8rem;
+      font-size: .9rem;
+      margin: 0%;
+      border: 0%;
+    }
       
     </style>
     <link rel="stylesheet" href="static/css/bootstrap.css" />
@@ -24,7 +32,7 @@
     <script src="static/js/bootstrap/bootstrap.js"></script>
   </head>
 <body>  
-  <nav class="decode-nav navbar navbar-expand-sm navbar-expand-lg navbar-expand-md navbar-expand navbar-light border border-dark" style="padding: .9rem;background-color: #DCDCDC;">
+  <!-- <nav class="decode-nav navbar navbar-expand-sm navbar-expand-lg navbar-expand-md navbar-expand navbar-light border" style="padding: .9rem;background-color: #DCDCDC;border: #3C763D;border-color: #3C763D;">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link"  href="/popup.html">常用</a>
@@ -35,16 +43,27 @@
       <li class="nav-item">
         <a class="nav-link"  href="/popup_crypto.html">加密</a>
       </li>
-     
-<!--       
-      <li class="nav-item">
-        <a class="nav-link"  href="/popup_crypto.html">清空</a>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="/popup_about.html">关于</a>
-      </li> -->
     </ul>
+  </nav> -->
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link"  href="/popup.html">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="/popup_decode.html">编码</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="/popup_crypto.html">加密</a>
+        </li>
+      </ul>
+    </div>
   </nav>
+
+
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-12" style="margin-top: .7rem;"></div>
@@ -52,7 +71,7 @@
   <div class="row">
     <div class="col-10" style="margin-bottom: .5rem;padding-right: 0;">
       <!-- 输入框 -->
-      <textarea id="input_text" class="form-control" placeholder="请输入要转换的内容" rows="4"></textarea>
+      <textarea id="input_text" class="form-control" rows="4"></textarea>
     </div>
     <div class="col-2" style="margin-bottom: .2rem;padding:.2rem;">
       <div class="container">
@@ -73,60 +92,67 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12" style="margin-bottom: .5rem">
-      <span class="badge badge-secondary" >md5加密：</span>
-      <textarea id="md5_output" class="form-control" rows="1" resize: none;></textarea>
+    <div class="col-12"  style="margin-bottom: .2rem;">
+      <div class="card" id="input_status" style="background-color: #DFF0D8; color:#3C763D; padding-left: 1rem;padding-bottom: .5rem;padding-top: .5rem;font-size: .7rem;">
+        请在上方第一个文本框中输入要编码/解码的字符。
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-12" style="margin-bottom: .5rem">
-      <span class="badge badge-secondary">Base64编码/解码：</span>
-      <textarea id="base64_output" class="form-control" rows="2"></textarea>
+    <div class="col-12" style="margin-bottom: .2rem">
+      <span class="badge badge-secondary" >MD5：</span>
+      <textarea id="md5_output" class="form-control" rows="1" disabled style="resize: none;"></textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-12" style="margin-bottom: .5rem">
+    <div class="col-12" style="margin-bottom: .2rem">
+      <span class="badge badge-secondary">Base64：</span>
+      <textarea id="base64_output" class="form-control" rows="2" disabled></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" style="margin-bottom: .2rem">
       <!-- <br /> -->
       <span class="badge badge-secondary">URL编码/解码：</span>
       <!-- <label for="name"></label> -->
-      <textarea id="url_output" class="form-control" rows="2"></textarea>
+      <textarea id="url_output" class="form-control" rows="2" disabled></textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-12" style="margin-bottom: .5rem">
+    <div class="col-12" style="margin-bottom: .2rem">
       <!-- <br /> -->
       <span class="badge badge-secondary">16进制/字符：</span>
       <!-- <label for="name">16进制/字符：</label> -->
       <textarea
         id="char_and_16_output"
         class="form-control"
-        rows="2"></textarea>
+        rows="2" disabled></textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-12" style="margin-bottom: .5rem">
+    <div class="col-12" style="margin-bottom: .2rem">
       <!-- <br /> -->
-      <span class="badge badge-secondary">Unicode编码/解码：</span>
+      <span class="badge badge-secondary">Unicode：</span>
       <!-- <label for="name">Unicode编码/解码：</label> -->
       <textarea
         id="unicode_output"
         class="form-control"
-        rows="2"></textarea>
+        rows="2" disabled></textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-12" style="margin-bottom: .5rem">
+    <div class="col-12" style="margin-bottom: .2rem">
       <!-- <br /> -->
       <span class="badge badge-secondary">UTF-8编码/解码：</span>
       <!-- <label for="name">UTF-8编码/解码：</label> -->
       <textarea
         id="utf-8_output"
         class="form-control"
-        rows="2"></textarea>
+        rows="2" disabled></textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-12" style="height: .5rem;">
+    <div class="col-12" style="height: .2rem;">
       <hr>
     </div>
   </div>

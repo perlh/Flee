@@ -16,35 +16,34 @@
         height: 1.3rem;
         /* font-size: 1rem; */
       }
+      .navbar-nav .nav-link {
+      padding: 0.1rem .1rem;
+      line-height: .8rem;
+      font-size: .9rem;
+      margin: 0%;
+      border: 0%;
+    }
     </style>
     <link rel="stylesheet" href="static/css/bootstrap.css" />
 
     <script type="text/javascript"></script>
   </head>
   <body>
-    <nav
-      class="decode-nav navbar navbar-expand-sm navbar-expand-lg navbar-expand-md navbar-expand navbar-light border border-dark"
-      style="padding: 0.9rem; background-color: #dcdcdc"
-    >
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/popup.html">常用</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/popup_decode.html">编码</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/popup_json.html">ESJSON</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/popup_crypto.html">加密</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/popup_about.html">关于</a>
-        </li> -->
-      </ul>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link"  href="/popup.html">首页</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link"  href="/popup_decode.html">编码</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/popup_crypto.html">加密</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-
     <div class="card" style="margin-top:1rem;margin-left: .5rem;margin-right: .5rem;">
       <div class="card-header" style="padding: 0.4rem">
         <span class="badge badge-primary">编码</span>
@@ -108,7 +107,7 @@
                 id="decode-output"
                 class="form-control"
                 rows="7"
-              ></textarea>
+              disabled></textarea>
               <br />
               <!-- <hr /> -->
             </div>
