@@ -23,9 +23,9 @@ function clearLocalStorage() {
   localStorage.clear();
 }
 
-
 // base64
 function flee_base64_decode(flee_string) {
+  var encode;
   try {
     var parsedWordArray = CryptoJS.enc.Base64.parse(flee_string);
     encode = parsedWordArray.toString(CryptoJS.enc.Utf8);
@@ -36,6 +36,7 @@ function flee_base64_decode(flee_string) {
 }
 
 function flee_base64_encode(flee_string) {
+  var encode;
   try {
     var wordArray = CryptoJS.enc.Utf8.parse(flee_string);
     encode = CryptoJS.enc.Base64.stringify(wordArray);
@@ -46,6 +47,7 @@ function flee_base64_encode(flee_string) {
 }
 
 function flee_base32_decode(flee_string) {
+  var encode;
   try {
     encode = base32.decode(flee_string);
   } catch (error) {
@@ -55,6 +57,7 @@ function flee_base32_decode(flee_string) {
 }
 
 function flee_base32_encode(flee_string) {
+  var encode;
   try {
     encode = base32.encode(flee_string);
   } catch (error) {
@@ -63,6 +66,7 @@ function flee_base32_encode(flee_string) {
   return encode;
 }
 function flee_morse_decode(flee_string) {
+  var encode;
   const option = {
     space: " ",
     long: "-",
@@ -78,12 +82,13 @@ function flee_morse_decode(flee_string) {
 }
 
 function flee_morse_encode(flee_string) {
+  var decode;
   const option = {
     space: " ",
     long: "-",
     short: ".",
   };
-  
+
   try {
     decode = xmorse.encode(flee_string, option);
   } catch (error) {
@@ -98,6 +103,7 @@ function flee_morse_encode(flee_string) {
 // }
 
 function flee_md5_encode(flee_string) {
+  var encode;
   try {
     encode = CryptoJS.MD5(flee_string).toString();
   } catch (error) {
@@ -110,6 +116,7 @@ function flee_md5_encode(flee_string) {
 // }
 
 function flee_sha1_encode(flee_string) {
+  var encode;
   try {
     encode = CryptoJS.SHA1(flee_string).toString();
   } catch (error) {
@@ -122,6 +129,7 @@ function flee_sha1_encode(flee_string) {
 // }
 
 function flee_sha3_encode(flee_string) {
+  var encode;
   try {
     encode = CryptoJS.SHA3(flee_string).toString();
   } catch (error) {
@@ -135,6 +143,7 @@ function flee_sha3_encode(flee_string) {
 // }
 
 function flee_sha224_encode(flee_string) {
+  var encode;
   try {
     encode = CryptoJS.SHA224(flee_string).toString();
   } catch (error) {
@@ -147,6 +156,7 @@ function flee_sha224_encode(flee_string) {
 // }
 
 function flee_sha256_encode(flee_string) {
+  var encode;
   try {
     encode = CryptoJS.SHA256(flee_string).toString();
   } catch (error) {
@@ -159,6 +169,7 @@ function flee_sha256_encode(flee_string) {
 // }
 
 function flee_sha384_encode(flee_string) {
+  var encode;
   try {
     encode = CryptoJS.SHA384(flee_string).toString();
   } catch (error) {
@@ -168,6 +179,7 @@ function flee_sha384_encode(flee_string) {
 }
 
 function flee_sha512_encode(flee_string) {
+  var encode;
   try {
     encode = CryptoJS.SHA512(flee_string).toString();
   } catch (error) {
@@ -177,6 +189,7 @@ function flee_sha512_encode(flee_string) {
 }
 
 function flee_string2hex_decode(flee_string) {
+  var encode;
   try {
     encode = hexToString(flee_string);
   } catch (error) {
@@ -185,6 +198,7 @@ function flee_string2hex_decode(flee_string) {
   return encode;
 }
 function flee_string2hex_encode(flee_string) {
+  var encode;
   try {
     encode = strToHexCharCode(strToUtf8Bytes(flee_string));
   } catch (error) {
@@ -194,6 +208,7 @@ function flee_string2hex_encode(flee_string) {
 }
 
 function flee_url_encode(flee_string) {
+  var encode;
   try {
     encode = encodeURIComponent(flee_string);
   } catch (error) {
@@ -202,6 +217,7 @@ function flee_url_encode(flee_string) {
   return encode;
 }
 function flee_url_decode(flee_string) {
+  var encode;
   try {
     encode = decodeURIComponent(flee_string);
   } catch (error) {
@@ -210,6 +226,7 @@ function flee_url_decode(flee_string) {
   return encode;
 }
 function flee_unicode_encode(flee_string) {
+  var encode;
   try {
     encode = unicode(flee_string);
   } catch (error) {
@@ -219,6 +236,7 @@ function flee_unicode_encode(flee_string) {
   return encode;
 }
 function flee_unicode_decode(flee_string) {
+  var encode;
   try {
     encode = unicodeToChar(flee_string);
   } catch (error) {
@@ -228,6 +246,7 @@ function flee_unicode_decode(flee_string) {
   return encode;
 }
 function flee_utf8_encode(flee_string) {
+  var encode;
   try {
     encode = escape(flee_string).replace(/(%u)(\w{4})/gi, "&#x$2;");
   } catch (error) {
@@ -237,6 +256,7 @@ function flee_utf8_encode(flee_string) {
   return encode;
 }
 function flee_utf8_decode(flee_string) {
+  var encode;
   try {
     encode = unescape(flee_string.replace(/&#x/g, "%u").replace(/;/g, ""));
   } catch (error) {
@@ -245,8 +265,7 @@ function flee_utf8_decode(flee_string) {
   return encode;
 }
 
-
-function onEmptyStart(){
+function onEmptyStart() {
   removeFromLocalStorage("flee_encoding_input");
   removeFromLocalStorage("flee_encoding_opration");
   removeFromLocalStorage("flee_encoding_select");
@@ -255,7 +274,7 @@ function onEmptyStart(){
   // 清空输入框
   $("#decode-input").val("");
   $("#output_textarea").val("");
-      // 显示编码成功
+  // 显示编码成功
   // $('#status').css('display', 'none');
   // $('#input_status').text("请在上方第一个文本框中输入要编码/解码的字符。");
 }
