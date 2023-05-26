@@ -25,30 +25,33 @@
     <script type="text/javascript"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link"  href="/popup.html">首页</a>
+            <a class="nav-link"  href="/index.html" draggable="false">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="/popup_decode.html">编码</a>
+            <a class="nav-link"  href="/decode.html" draggable="false">编码</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link"  href="/popup_crypto.html">加密</a>
+            <a class="nav-link"  href="/crypto.html" draggable="false">加密</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="card" style="margin: 0.5rem">
+    <div class="card" style="margin: 0.5rem;margin-top:2.7rem;">
       <div class="card-header" style="padding: 0.4rem">
-        <span class="badge"> 
-            <select id="crypto-select">
-                <!-- <option selected value="0">AES加密/解密</option> -->
-                <option selected  value="1">DES加密/解密</option>
-            </select>
-        </span>
+        <div class="form-group" style="margin-right: .5rem;padding: .3rem;margin-bottom: 0rem;">
+          <select id="crypto-select" class="form-control"  style="background-color: #bfd7d5;color: #152635;width: 8rem;height: 1.8rem;font-size: .8rem;padding: 0%;margin: 0%;padding-left: .3rem;">
+            <!-- <option selected value="0">AES加密/解密</option> -->
+            <option selected  value="1">DES加密/解密</option>
+        </select>
+          </div>
+        <!-- <span class="badge">  -->
+           
+
       </div>
       <div class="card-body" style="padding: 0%">
         <div class="container-fluid">

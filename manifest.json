@@ -11,7 +11,7 @@
       "32": "static/img/logo.png"
     },
     "default_title": "Flee",
-    "default_popup": "popup.html"
+    "default_popup": "index.html"
   },
 
   "background": {
