@@ -265,6 +265,40 @@ function flee_utf8_decode(flee_string) {
   return encode;
 }
 
+
+function flee_sm3_encode(flee_string) {
+  var sm3;
+  try{
+    sm3 = smEncrypt.sm3(flee_string);
+  }catch(error){
+    sm3 = error;
+  }
+  return sm3;
+}
+
+
+
+// Base16编码函数
+function flee_base16_encode(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    const hex = str.charCodeAt(i).toString(16);
+    result += hex.padStart(2, "0");
+  }
+  return result;
+}
+
+// Base16解码函数
+function flee_base16_decode(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i += 2) {
+    const hex = str.substr(i, 2);
+    const charCode = parseInt(hex, 16);
+    result += String.fromCharCode(charCode);
+  }
+  return result;
+}
+
 function onEmptyStart() {
   removeFromLocalStorage("flee_encoding_input");
   removeFromLocalStorage("flee_encoding_opration");
@@ -278,6 +312,9 @@ function onEmptyStart() {
   // $('#status').css('display', 'none');
   // $('#input_status').text("请在上方第一个文本框中输入要编码/解码的字符。");
 }
+
+
+
 
 // 主函数
 function flee_main() {
@@ -356,6 +393,26 @@ function flee_main() {
         output_result = flee_unicode_encode(input_textarea);
         break;
       }
+      case "sm3": {
+        // https://github.com/44021987/smEncrypt
+        output_result = flee_sm3_encode(input_textarea);
+        break;
+      }
+      case "base16": {
+        // https://github.com/44021987/smEncrypt
+        output_result = flee_base16_encode(input_textarea);
+        break;
+      }
+      case "base58": {
+        // https://github.com/44021987/smEncrypt
+        output_result = base58_encode(input_textarea);
+        break;
+      }
+      case "base62": {
+        // https://github.com/44021987/smEncrypt
+        output_result = base62_encode(input_textarea);
+        break;
+      }
       default: {
         output_result = "Encode not exist！";
         // $("#output_textarea").css('color', 'red');
@@ -393,13 +450,25 @@ function flee_main() {
         output_result = flee_unicode_decode(input_textarea);
         break;
       }
+      case "base16": {
+        output_result = flee_base16_decode(input_textarea);
+        break;
+      }
+      case "base58": {
+        output_result = base58_decode(input_textarea);
+        break;
+      }
+      case "base62": {
+        output_result = base62_decode(input_textarea);
+        break;
+      }
       default: {
         output_result = "Decode Not exist！";
         // $("#output_textarea").css('color', 'red');
       }
     }
   }
-
+  
   // alert(output_result);
   output_textarea.val(output_result);
   // alert("ddd");

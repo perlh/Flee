@@ -43,8 +43,6 @@ function clearForm() {
 function mainEncode() {
   clearForm();
   var str = $("#input_text").val();
-  
-
   res = saveToLocalStorage("input_text",str);
   saveToLocalStorage("opration","encode");
   // 显示编码成功
@@ -216,4 +214,3 @@ if(result != null){
   }
   
 }
-

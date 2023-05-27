@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Flee",
-  "version": "3.1.0",
+  "version": "3.2",
   "description": "一款简单的编码/解码工具",
   "author": "Heshuming",
   "action": {
@@ -17,7 +17,11 @@
   "background": {
     "service_worker": "static/js/background.js"
   },
+  "permissions": [
+    "downloads"
+  ],
   "host_permissions": ["http://*/*", "https://*/*"],
+
 
   "icons": {
     "16": "static/img/logo.png",

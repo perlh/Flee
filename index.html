@@ -20,6 +20,10 @@
         margin: 0%;
         border: 0%;
       }
+      /* 按钮去掉点击时候出现的边框 */
+      .btn:focus {
+        box-shadow: none !important;
+      }
     </style>
     <link rel="stylesheet" href="static/css/bootstrap.css" />
 
@@ -36,6 +40,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/decode.html" draggable="false">编码</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/convert.html" draggable="false">转换</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/crypto.html" draggable="false">加密</a>
