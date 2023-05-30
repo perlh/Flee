@@ -1,15 +1,10 @@
 # Flee 插件
 - flee3.2
 - 一款Chrome 浏览器插件。
-- 目前内置解码小工具，支持md5、base64、url、16进制转字符串、Unicode和UTF-8等编码。
-- 可用于CTF比赛。
-
-## Flee 3.2 更新内容
-- 修复上一个版本的bug。
-- 优化ui。
-- 添加一个新的子功能模块，实现base64转文件功能
-- 对于“编码”功能页面添加监听功能，每次输入新的数据自动生成编码。
-- 对于“编码”功能页面添加数据本地存储功能，代码架构进行了大部分重构。
+- 目前内置解码小工具，支持md5、base64、base32、url、ASCII、Unicode和UTF-8等编码。
+- 增加base64转文件功能。
+- 二进制、八进制、十进制、十六进制相互转换。
+- 支持DES加密与解密。
 
 ## 支持的编码
 ### 编码
@@ -25,9 +20,11 @@
 | Hex编码 | ✅|sha384 | ✅|
 | Unicode编码| ✅|sha512 | ✅|
 | UTF-8 | ✅| sm3| ✅|
+
 ### 转换
-- base64转文件
-> 更多编码后续将支持！
+- base64转文件。
+- 二进制、八进制、十进制、十六进制相互转换。
+
 ### 加密
 - DES加密
 
@@ -42,26 +39,15 @@ git clone https://github.com/perlh/Flee.git
 2. Chrome扩展程序 -> 加载已解压扩展程序 -> 选择`Flee`文件夹
 3. 确定
 
-## Flee_v3.1插件新UI界面
+## Flee_v3.2
 
-#### 1、常用
-![EasyETools](docs/flee_index_3_1.png)
+1. 首页
+![EasyETools](docs/f1.png)
 
-#### 2、 编码
-![EasyETools](docs/flee_encoding_3_1.png)
+2. 编码
+![EasyETools](docs/f2.png)
 
-
-#### 3、加密
-
-![EasyETools](docs/flee_crypto_3_1.png)
-
-## Flee_v3.0插件旧UI界面
-
-#### 1、常用
-![EasyETools](docs/flee3.png)
-#### 2、 编码
-![EasyETools](docs/flee3_decode.png)
-
-#### 3、加密
-
-![Crypto](docs/flee3_crypto.png)
+3. 转换
+![EasyETools](docs/f3.png)
+4. 加密
+![EasyETools](docs/f4.png)
