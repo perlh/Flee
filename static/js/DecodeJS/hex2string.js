@@ -6,7 +6,7 @@ function hexToString(str) {
     for (var i = 0; i < len; i++) {
       val += String.fromCharCode(parseInt(str.substr(i * 2, 2), 16));
     }
-    console.log(val, "16进制转字符串");
+    // console.log(val, "16进制转字符串");
     return this.utf8to16(val);
   }
   //处理中文乱码问题
@@ -44,7 +44,7 @@ function hexToString(str) {
       }
     }
   
-    console.log(out, "out");
+    // console.log(out, "out");
     return out;
   }
   

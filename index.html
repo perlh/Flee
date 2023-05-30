@@ -20,6 +20,9 @@
         margin: 0%;
         border: 0%;
       }
+      textarea:focus {
+        box-shadow: none !important;
+      }
       /* 按钮去掉点击时候出现的边框 */
       .btn:focus {
         box-shadow: none !important;
@@ -58,7 +61,7 @@
       <div class="row">
         <div class="col-10" style="margin-bottom: 0.5rem; padding-right: 0">
           <!-- 输入框 -->
-          <textarea id="input_text" class="form-control" rows="4"></textarea>
+          <textarea id="input_text" class="form-control" rows="4" placeholder="请输入编码"></textarea>
         </div>
         <div class="col-2" style="margin-bottom: 0.2rem; padding: 0.2rem">
           <div class="container">
@@ -67,8 +70,9 @@
                 type="button"
                 id="onButtonEncode"
                 class="btn btn-sm btn-block btn-success"
+                
               >
-                Encode
+                编码
               </button>
             </div>
             <div class="row" style="height: 0.3rem"></div>
@@ -78,7 +82,7 @@
                 id="onButtonDecode"
                 class="btn btn-sm btn-block btn-primary"
               >
-                Decode
+                解码
               </button>
             </div>
             <div class="row" style="height: 0.3rem"></div>
@@ -88,7 +92,7 @@
                 id="onEmpty"
                 class="btn btn-sm btn-block btn-info"
               >
-                Empty
+                清空
               </button>
             </div>
           </div>

@@ -24,6 +24,9 @@
       .btn:focus {
         box-shadow: none !important;
       }
+      textarea:focus {
+        box-shadow: none !important;
+      }
     </style>
     <link rel="stylesheet" href="static/css/bootstrap.css" />
 
@@ -42,7 +45,7 @@
             <a class="nav-link" href="/decode.html" draggable="false">编码</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/convert.html" draggable="false">转换</a>
+            <a class="nav-link" href="/convert.html">转换</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/crypto.html" draggable="false">加密</a>
@@ -50,44 +53,62 @@
         </ul>
       </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-12" style="margin-top: 2.6rem"></div>
+    <div
+      class="card"
+      style="margin-top: 2.7rem; margin-left: 0.4rem; margin-right: 0.4rem"
+    >
+      <div class="card-header" style="padding: 0.2rem; padding-left: 0.4rem">
+        <span class="badge badge-primary">Base64转文件</span>
+      </div>
+      <div
+        class="card-body"
+        style="padding: 0%; padding-left: 0.2rem; padding-top: 0.3rem"
+      >
+        <div class="container-fluid">
+          <div class="row">
+            <div
+              class="col-10"
+              style="padding-right: 0.2rem; padding-left: 0rem; margin: 0"
+            >
+              <div class="input-group mb-3">
+                <textarea
+                  id="base64Input"
+                  class="form-control"
+                  rows="10"
+                  placeholder="请输入Base64编码"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-2" style="padding: 0rem; margin: 0%">
+              <div class="container-fluid">
+                <div class="row">
+                  <button
+                    class="btn btn-success"
+                    id="downloadButton"
+                    style="font-size: 0.8rem; margin-top: 0.4rem; width: 5.3rem"
+                  >
+                    文件下载
+                  </button>
+                </div>
+                <div class="row">
+                  <button
+                    class="btn"
+                    id="convert-empty"
+                    style="
+                      background-color: #2b91b4;
+                      color: #ffffff;
+                      font-size: 0.8rem;
+                      margin-top: 0.4rem;
+                      width: 5.3rem;
+                    "
+                  >
+                    清空
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="row">
-            <div class="col-12">
-                <span class="badge badge-primary">Base64转文件</span>
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-10" style="padding: .3rem;padding-left: .7rem;">
-            <div class="input-group mb-3">
-                <textarea
-                id="base64Input"
-                class="form-control"
-                rows="10"
-                placeholder="Enter Base64 encoding"
-              ></textarea>
-              <!-- <input type="text" class="form-control" placeholder="输入文本"> -->
-            </div>
-          </div>
-          <div class="col-2" style="padding: 0rem;">
-           <div class="container">
-            <div class="row">
-                <button class="btn btn-success" id="downloadButton" style="font-size: .8rem;margin-top: .4rem;width: 5.3rem;">
-                    Download
-                  </button>
-            </div>
-            <div class="row">
-                <button class="btn" id="convert-empty" style="background-color: #2b91b4;color: #ffffff;;font-size: .8rem;margin-top: .4rem;width: 5.3rem;">
-                    Empty
-                  </button>
-            </div>
-
-           </div>
-          </div>
-        </div>
-        <div class="row">
             <div class="col-12" style="margin-bottom: 0.2rem">
               <div
                 class="card"
@@ -99,51 +120,114 @@
                   padding-bottom: 0.5rem;
                   padding-top: 0.5rem;
                   font-size: 0.7rem;
+                  display: none;
                 "
               >
-                请在上方文本框中输入Base64编码。
+                // 不显示 请在上方文本框中输入Base64编码。
               </div>
-            </div>
-          </div>
-      </div>
-
-    <!-- <div
-      class="card"
-      style="margin-top: 2.7rem; margin-left: 0.5rem; margin-right: 0.5rem"
-    >
-      <div class="card-body" style="padding: 0%">
-        <div class="container-fluid">
-          <div class="row" style="margin-top: 0.4rem">
-            <div class="col-12">
-              <textarea
-                id="base64Input"
-                class="form-control"
-                rows="10"
-                placeholder="Enter Base64 encoding"
-              ></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <span class="badge badge-primary">输出</span>
-            </div>
-            <div class="col-6">
-              <button class="btn btn-primary" id="downloadButton">
-                Download File
-              </button>
+              <!-- <hr /> -->
             </div>
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- <div class="row">
-        <input
-          type="text"
-          id="base64Input"
-          placeholder="Enter Base64 encoding"
-        />
-       
-      </div> -->
+    </div>
+  
+    <div
+      class="card"
+      style="margin-top: 0.4rem; margin-left: 0.5rem; margin-right: 0.5rem"
+    >
+      <div class="card-header" style="padding: 0.2rem; padding-left: 0.4rem">
+        <span class="badge badge-primary">进制转换</span>
+      </div>
+      <div class="card-body" style="padding: 0%; margin: 0%">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div style="margin-top: 0.3rem">
+                <span class="badge badge-secondary">输入：</span>
+                <label class="radio-inline">
+                  <input type="radio" id="binaryRadio" name="numberSystem" value="2" >
+                  二进制
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" id="hexRadio" name="numberSystem" value="8">
+                  八进制
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" id="hexRadio" name="numberSystem" value="10" checked>
+                  十进制
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" id="hexRadio" name="numberSystem" value="16">
+                  十六进制
+                </label>
+                <select class="form-select" id="numberSelect">
+                  <option value="2">二进制</option>
+                  <option value="8">八进制</option>
+                  <option value="10" selected>十进制</option>
+                  <option value="16">十六进制</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <div>
+                  <textarea
+                    id="convert_input"
+                    class="form-control"
+                    rows="1"
+                    placeholder="请输入数字"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div style="margin-top: 0.3rem">
+                <span class="badge badge-secondary">输出：</span>
+                <label class="radio-inline">
+                  <input type="radio" id="binaryRadio2" name="numberSystem2" value="2" >
+                  二进制
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" id="hexRadio2" name="numberSystem2" value="8">
+                  八进制
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" id="hexRadio2" name="numberSystem2" value="10" checked>
+                  十进制
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" id="hexRadio2" name="numberSystem2" value="16">
+                  十六进制
+                </label>
+                <select class="form-select" id="numberSelect2">
+                  <option value="2">二进制</option>
+                  <option value="8">八进制</option>
+                  <option value="10" selected>十进制</option>
+                  <option value="16">十六进制</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <div>
+                  <textarea
+                    id="convert_output"
+                    class="form-control"
+                    rows="1"
+                    placeholder="请输入数字"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="static/js/Convert/big.js"></script>
   <script src="static/js/lib/convert.js"></script>
 </html>

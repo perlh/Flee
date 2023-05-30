@@ -413,6 +413,17 @@ function flee_main() {
         output_result = base62_encode(input_textarea);
         break;
       }
+      case "base91": {
+        // https://github.com/44021987/smEncrypt
+        // output_result = base91_encode(input_textarea);
+        output_result = base91_encode(input_textarea); 
+        break;
+      }
+      case "base92": {
+        // https://github.com/44021987/smEncrypt
+        output_result = base92_encode(input_textarea);
+        break;
+      }
       default: {
         output_result = "Encode not exist！";
         // $("#output_textarea").css('color', 'red');
@@ -460,6 +471,14 @@ function flee_main() {
       }
       case "base62": {
         output_result = base62_decode(input_textarea);
+        break;
+      }
+      case "base91": {
+        output_result = base91_decode(input_textarea);
+        break;
+      }
+      case "base92": {
+        output_result = base92_decode(input_textarea);
         break;
       }
       default: {

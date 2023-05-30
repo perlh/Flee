@@ -8,7 +8,7 @@ function int2hex(str){
         num = str[i];
         hex1 = num.toString(16);
 
-        console.log(hex1);
+        // console.log(hex1);
       }
     
 }

@@ -62,12 +62,3 @@ function base58_decode(str) {
 
   return new TextDecoder().decode(new Uint8Array(bytes));
 }
-
-// // 测试示例
-// const originalString = "Hello, World!";
-// const encodedString = base58_encode(originalString);
-// const decodedString = base58_decode(encodedString);
-
-// console.log("Original String: " + originalString);
-// console.log("Encoded String: " + encodedString);
-// console.log("Decoded String: " + decodedString);

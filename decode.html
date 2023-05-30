@@ -13,17 +13,20 @@
         background: white;
       }
       .navbar-nav .nav-link {
-      padding: 0.1rem .1rem;
-      line-height: .8rem;
-      font-size: .9rem;
-      margin: 0%;
-      border: 0%;
-    }
-    /* 按钮去掉点击时候出现的边框 */
-    .btn:focus {
+        padding: 0.1rem 0.1rem;
+        line-height: 0.8rem;
+        font-size: 0.9rem;
+        margin: 0%;
+        border: 0%;
+      }
+      /* 按钮去掉点击时候出现的边框 */
+      .btn:focus {
         box-shadow: none !important;
       }
-      select:focus{
+      select:focus {
+        box-shadow: none !important;
+      }
+      textarea:focus {
         box-shadow: none !important;
       }
     </style>
@@ -36,21 +39,24 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link"  href="/index.html" >首页</a>
+            <a class="nav-link" href="/index.html" draggable="false">首页</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link"  href="/decode.html" draggable="false">编码</a>
+            <a class="nav-link" href="/decode.html" draggable="false">编码</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/convert.html" draggable="false">转换</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="/crypto.html" draggable="false">加密</a>
+            <a class="nav-link" href="/crypto.html" draggable="false">加密</a>
           </li>
         </ul>
       </div>
     </nav>
-    <div class="card" style="margin-top:2.7rem;margin-left: .5rem;margin-right: .5rem;">
+    <div
+      class="card"
+      style="margin-top: 2.7rem; margin-left: 0.5rem; margin-right: 0.5rem"
+    >
       <!-- <div class="card-header" style="padding: 0.4rem">
         <span class="badge badge-primary">编码</span>
       </div> -->
@@ -66,39 +72,100 @@
               ></textarea>
             </div>
           </div>
-          <div class="row text-center" style="padding-bottom: 0rem;padding-left: 0.8rem;text-align: left;padding-top: 0rem;margin: 0rem;padding: 0rem;">            
-              <div class="form-group" style="margin-right: .5rem;padding: .3rem;margin-bottom: 0rem">
-                <select id="opration" class="form-control" style="width: 5rem;height: 1.8rem;font-size: .8rem;padding: 0%;margin: 0%;padding-left: .3rem;background-color: #DFF0D8;color: #3C763D;">
-                  <option value="decode">Decode</option>
-                  <option selected value="encode">Encode</option>
-                </select>
-            </div>
-            <div class="form-group" style="margin-right: .5rem;padding: .3rem;margin-bottom: 0rem;">
-              <select id="decode-select" class="form-control" style="background-color: #b0cdd7;color: #1d354c;width: 6rem;height: 1.8rem;font-size: .8rem;padding: 0%;margin: 0%;padding-left: .3rem;">
-                <option selected value="base64">base64</option>
-                <option value="base32">base32</option>
-                <option value="base16">base16</option>
-                <option value="base58">base58</option>
-                <option value="base62">base62</option>
-                <option value="url">url</option>
-                <option value="string2hex">string2hex</option>
-                <option value="unicode">unicode</option>
-                <option value="utf8">utf8</option>
-                <option value="md5">md5</option>
-                <option value="sha1">sha1</option>
-                <option value="sm3">sm3</option>
-                <option value="sha3">sha3</option>
-                <option value="sha224">sha224</option>
-                <option value="sha256">sha256</option>
-                <option value="sha384">sha384</option>
-                <option value="sha512">sha512</option>
-                <option value="morse">morse</option>
+          <div
+            class="row text-center"
+            style="
+              padding-bottom: 0rem;
+              padding-left: 0.8rem;
+              text-align: left;
+              padding-top: 0rem;
+              margin: 0rem;
+              padding: 0rem;
+            "
+          >
+            <div
+              class="form-group"
+              style="margin-right: 0.5rem; padding: 0.3rem; margin-bottom: 0rem"
+            >
+              <select
+                id="opration"
+                class="form-control"
+                style="
+                  width: 5rem;
+                  height: 1.8rem;
+                  font-size: 0.8rem;
+                  padding: 0%;
+                  margin: 0%;
+                  padding-left: 0.3rem;
+                  background-color: #dff0d8;
+                  color: #3c763d;
+                "
+              >
+                <option value="decode">解码</option>
+                <option selected value="encode">编码</option>
               </select>
+            </div>
+            <div
+              class="form-group"
+              style="margin-right: 0.5rem; padding: 0.3rem; margin-bottom: 0rem"
+            >
+              <select
+                id="decode-select"
+                class="form-control"
+                style="
+                  background-color: #b0cdd7;
+                  color: #1d354c;
+                  width: 7rem;
+                  height: 1.8rem;
+                  font-size: 0.8rem;
+                  padding: 0%;
+                  margin: 0%;
+                  padding-left: 0.3rem;
+                "
+              >
+                <option selected value="base64">base64</option>
+                <option value="base32">Base32</option>
+                <option value="base16">Base16</option>
+                <option value="base58">Base58</option>
+                <option value="base62">Base64</option>
+                <option value="url">URL</option>
+                <option value="string2hex">ASCII (16进制)</option>
+                <option value="unicode">unicode</option>
+                <option value="utf8">UTF-8</option>
+                <option value="md5">Md5</option>
+                <option value="sha1">SHA1</option>
+                <option value="sm3">SM3</option>
+                <option value="sha3">SHA3</option>
+                <option value="sha224">SHA224</option>
+                <option value="sha256">SHA256</option>
+                <option value="sha384">SHA384</option>
+                <option value="sha512">SHA512</option>
+                <option value="morse">Morse</option>
+              </select>
+            </div>
+            <div
+              class="form-group"
+              style="margin-right: 0.5rem; padding: 0.3rem; margin-bottom: 0rem"
+            >
+              <button
+                id="onEmpty"
+                class="btn"
+                style="
+                  background-color: #2b91b4;
+                  color: #ffffff;
+                  width: 6rem;
+                  height: 1.8rem;
+                  font-size: 0.8rem;
+                  padding: 0%;
+                  margin: 0%;
+                  padding-left: 0.1rem;
+                "
+              >
+                清空
+              </button>
+            </div>
           </div>
-          <div class="form-group" style="margin-right: .5rem;padding: .3rem;margin-bottom: 0rem;">
-           <button id="onEmpty" class="btn" style="background-color: #2b91b4;color: #ffffff;width: 6rem;height: 1.8rem;font-size: .8rem;padding: 0%;margin: 0%;padding-left: .1rem;">Empty</button>
-        </div>
-          </div>
+
           <div class="row">
             <div class="col-12">
               <span class="badge badge-primary">输出</span>
@@ -108,7 +175,8 @@
                 id="output_textarea"
                 class="form-control"
                 rows="7"
-              disabled></textarea>
+                disabled
+              ></textarea>
               <br />
             </div>
           </div>
@@ -161,6 +229,8 @@
     <script src="static/js/DecodeJS/unicode.js"></script>
     <script src="static/js/base/base58.js"></script>
     <script src="static/js/base/base62.js"></script>
+    <script src="static/js/base/base91.js"></script>
+    <script src="static/js/base/base92.js"></script>
     <script src="static/js/lib/decode.js"></script>
-</body>
+  </body>
 </html>
