@@ -73,6 +73,13 @@ function getFileExtension(magicNumber) {
   }
 }
 
+
+// 判断是否为base64
+function isBase64(input) {
+  const base64Regex = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/;
+  return base64Regex.test(input);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     
   var downloadButton = document.getElementById("downloadButton");
@@ -82,19 +89,39 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // alert(base64Data);
     if (base64Data) {
-      downloadFile(base64Data);
+      if(isBase64(base64Data)){
+        downloadFile(base64Data);
+        return
+      }
+      alert("输入不是base64编码");
+      return
+      // $("#convert_status").text("不是base64编码");
     } else {
-      $("#convert_status").text("Base64 input is empty");
-      console.log("Base64 input is empty");
+      alert("Base64输入为空");
+      // $("#convert_status").text("Base64输入为空");
+      // console.log("Base64 input is empty");
     }
   });
 });
-
+function showDate(){
+  var now = new Date();
+  var year = now.getFullYear(); //得到年份
+  var month = now.getMonth()+1;//得到月份
+  var date = now.getDate();//得到日期
+  // var day = now.getDay();//得到周几
+  var hour= now.getHours();//得到小时数
+  var minute= now.getMinutes();//得到分钟数
+  var second= now.getSeconds();//得到秒数
+  return hour.toString()+"-"+minute.toString()+"-"+second.toString();   
+  // setTimeout(show,1000);//定时器一直调用show()函数
+  // return "";
+  }
 document.addEventListener("DOMContentLoaded", function () {
   var downloadButton = document.getElementById("convert-empty");
   downloadButton.addEventListener("click", function () {
         removeFromLocalStorage("convert_input");
     $("#base64Input").val("");
+    // alert(showDate());
     $("#convert_status").text("请在上方文本框中输入Base64编码。");
   });
 });
@@ -102,9 +129,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 function downloadFile(base64Data) {
-  var fileName = "flee_" + generateRandomString(8);
+  var fileName = "flee-" + generateRandomString(8);
   var byteCharacters = atob(base64Data);
   var byteNumbers = new Array(byteCharacters.length);
   for (var i = 0; i < byteCharacters.length; i++) {
@@ -130,7 +156,7 @@ function downloadFile(base64Data) {
 
   var link = document.createElement("a");
   link.href = url;
-  link.download = fileName + "." + extension;
+  link.download = fileName +"-"+showDate()+ "." + extension;
   link.click();
 
   URL.revokeObjectURL(url);
