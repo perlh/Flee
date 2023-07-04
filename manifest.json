@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Flee",
-  "version": "1.5",
+  "version": "2.0",
   "author": "贺述明",
   "description": "一款简单的编码/解码工具",
   "icons": {
