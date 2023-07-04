@@ -74,6 +74,20 @@ function getFileExtension(magicNumber) {
 }
 
 
+// 过滤掉图片头文件
+function filter_file_header(file_base64){
+  let base64Code = file_base64.split(',');
+  if(base64Code.length == 1){
+    return file_base64;
+  }
+  if(base64Code.length==2){
+    // 说明是正确的base64类型
+    return base64Code[1];
+  }else{
+    return "";
+  }
+}
+
 // 判断是否为base64
 function isBase64(input) {
   const base64Regex = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/;
@@ -86,20 +100,18 @@ document.addEventListener("DOMContentLoaded", function () {
   downloadButton.addEventListener("click", function () {
     var base64Input = document.getElementById("base64Input");
     var base64Data = base64Input.value.trim();
-    
+    base64Data = filter_file_header(base64Data)
     // alert(base64Data);
     if (base64Data) {
+
       if(isBase64(base64Data)){
         downloadFile(base64Data);
         return
       }
       alert("输入不是base64编码");
       return
-      // $("#convert_status").text("不是base64编码");
     } else {
       alert("Base64输入为空");
-      // $("#convert_status").text("Base64输入为空");
-      // console.log("Base64 input is empty");
     }
   });
 });
@@ -162,43 +174,12 @@ function downloadFile(base64Data) {
   URL.revokeObjectURL(url);
 }
 
-// function listen_base_convert_by_1() {
-  
-//   const selectedValue = $('input[type="radio"][name="Base-Convert-1"]').val();
-//   $('input[type="radio"][name="Base-Convert-1"]').val([selectedValue]);
-//   // const selectedValue = $(this).val();
-//   alert(selectedValue);
-//   if (selectedValue === '2') {
-//     $('#Base-Convert-2').val('2');
-//   } else if (selectedValue === '8') {
-//     $('#Base-Convert-2').val('16');
-//   } else if (selectedValue === '16') {
-//     $('#Base-Convert-2').val('16');
-//   } else if (selectedValue === '16') {
-//     $('#Base-Convert-2').val('16');
-//   }
-//   const selectedValue2 = $('input[type="radio"][name="Base-Convert-1"]').val();
-//   alert(selectedValue2);
-//   // $("#Base-Convert-2").val(value);
-//   // alert($("#Base-Convert-2").val());
-  
-// }
-// function listen_base_convert_by_2() {
-//   var value = $("#Base-Convert-2").val();
-//   alert(value);
-//   // 选中值为 "option2" 的单选框
-// $('input[name="Base-Convert-1"][value="2"]').prop('checked', true);
-//   // $("input[name='Base-Convert-1']").val(value);
-// }
 
 $(document).ready(function () {
 
     var base64_input = getFromLocalStorage("convert_input");
     $("#base64Input").val(base64_input);
     $("#base64Input").change(saveInput);
-    // 
-    // $("input[name='Base-Convert-1']").change(listen_base_convert_by_1);
-    // $("#Base-Convert-2").change(listen_base_convert_by_2);
 })
 
 
@@ -219,18 +200,16 @@ function base_calcute(){
     return $("#convert_output").val("输入数据不正确！");
 
   }
-  // alert(validateNumberFormat(base_convert_input,base_type_in));
-  // alert(base_in);
-  // alert(base_convert_input);
   const result = convertNumber(base_convert_input, base_type_in, base_type_out);
   // alert(result);
   $("#convert_output").val(result);
 
 }
 
+// 进制转换
 function convertNumber(number, fromBase_string, toBase_string) {
   const fromBase = parseInt(fromBase_string);
-
+  
   if (isNaN(fromBase)) {
     return NaN;
   }
@@ -240,14 +219,15 @@ function convertNumber(number, fromBase_string, toBase_string) {
     return NaN;
   }
   var decimalNumber;
-  // return number;
   // 将输入的数字从输入进制转换为十进制
   if (fromBase === 16){
     // 修复科学计数法
     decimalNumber = BigInt("0x"+number)
   }else{
-     decimalNumber = parseint(number, fromBase);
+     decimalNumber = parseInt(number, fromBase);
   }
+
+  // alert(decimalNumber);
 
   // 将十进制数字转换为输出进制
   let convertedNumber;
@@ -256,13 +236,7 @@ function convertNumber(number, fromBase_string, toBase_string) {
   } else if (toBase === 8) {
     convertedNumber = decimalNumber.toString(8); // 转换为八进制
   } else if (toBase === 10) {
-    // function hexToDecimal(hex) {
-      // alert(decimalNumber);
-    // var decimal = new Big(decimalNumber).toString(10);
-      // return decimal;
-    // }
     convertedNumber = decimalNumber.toString(); // 转换为十进制
-    // alert(convertedNumber);
   } else if (toBase === 16) {
     convertedNumber = decimalNumber.toString(16); // 转换为十六进制
   }
@@ -329,7 +303,6 @@ $(document).ready(function() {
   $("#convert_input").on("input", function () {
     // var inputData = $(this).val(); // 获取输入框的值
     // 执行你的函数，例如：
-    // alert("hello world");
     base_calcute();
   });
   // $('#convert_input').change(base_calcute);
