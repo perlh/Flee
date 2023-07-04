@@ -84,7 +84,7 @@ function mainEncode() {
   try {
     var str_base32 = flee_base32_encode(str);
   } catch(error){
-    var decodeString = error;
+    var str_base32 = error;
   } finally {
     $("#base32_output").val(str_base32);
   }
@@ -116,7 +116,7 @@ function mainEncode() {
   try {
     var str_utf_8 = escape(str).replace(/(%u)(\w{4})/gi, "&#x$2;");;
   } catch(error){
-    var decodeString = error;
+    var str_utf_8 = error;
   } finally {
     $("#utf-8_output").val(str_utf_8);
   }
@@ -155,17 +155,17 @@ function mainDecode() {
   // 16-char
   try {
     // convertedTenVal = parseInt(str, 16);
-    var str_md5 = hexToString(str);
+    var char16 = hexToString(str);
   } catch(error){
-    var decodeString = error;
+    var char16 = error;
   } finally {
-    $("#char_and_16_output").val(str_md5);
+    $("#char_and_16_output").val(char16);
   }
   // unicode
   try {
     var str_unicode = unicodeToChar(str);
   } catch(error){
-    var decodeString = error;
+    var str_unicode = error;
   } finally {
     $("#unicode_output").val(str_unicode);
   }
@@ -175,7 +175,7 @@ function mainDecode() {
    try {
     var str_utf_8 = unescape(str.replace(/&#x/g, '%u').replace(/;/g, ''));
   } catch(error){
-    var decodeString = error;
+    var str_utf_8 = error;
   } finally {
     $("#utf-8_output").val(str_utf_8);
   }
