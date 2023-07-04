@@ -1,31 +1,27 @@
 {
   "manifest_version": 3,
   "name": "Flee",
-  "version": "3.2",
+  "version": "1.5",
+  "author": "贺述明",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh3NZf3lhj/07dC9lk0d2k1rOnMDYuTRcscndv5+QCEQ1JxlurgsLReXzWeEL7YnveOs8LFflSywMF2rfnPwLVSSmFIMC7a0vCM01daEmOJuVueLO/3OO+NLA1cHBMtA/gnOyoeeKIr1qvcJc98OWSILQjZRV8SA1vKliR2YtNv8jVNuIhBBpLkmLyrp3oZEhWoAc6n4cElJshSZhc2EB5PDqS8xvC1UPFl9LrtxQR0uoy+4xRNyzbZwn2XErM+1iLyACzsUhMlAbjRujomDxpXuHcP4Rs6x6ai+TIMyRbI83PDydZQpd/Kd+YrEis3Ex/5tDTCM/Wqdy5NH+eStyxQIDAQAB",
   "description": "一款简单的编码/解码工具",
-  "author": "Heshuming",
+  "icons": {
+    "16": "static/img/logo-16.png",
+    "19": "static/img/logo-19.png",
+    "38": "static/img/logo-38.png",
+    "48": "static/img/logo-48.png",
+    "128": "static/img/logo-128.png"
+  },
+
   "action": {
     "default_icon": {
-      "16": "static/img/logo.png",
-      "24": "static/img/logo.png",
-      "32": "static/img/logo.png"
+      "16": "static/img/logo-16.png",
+      "24": "static/img/logo-24.png",
+      "32": "static/img/logo-32.png"
     },
     "default_title": "Flee",
     "default_popup": "index.html"
   },
-
- 
-  "permissions": [
-    "downloads"
-  ],
- 
-
-
-  "icons": {
-    "16": "static/img/logo.png",
-    "19": "static/img/logo.png",
-    "38": "static/img/logo.png",
-    "48": "static/img/logo.png",
-    "128": "static/img/logo.png"
-  }
+  "permissions": ["downloads" ]
+  
 }
