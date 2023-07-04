@@ -3,7 +3,6 @@
   "name": "Flee",
   "version": "1.5",
   "author": "贺述明",
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh3NZf3lhj/07dC9lk0d2k1rOnMDYuTRcscndv5+QCEQ1JxlurgsLReXzWeEL7YnveOs8LFflSywMF2rfnPwLVSSmFIMC7a0vCM01daEmOJuVueLO/3OO+NLA1cHBMtA/gnOyoeeKIr1qvcJc98OWSILQjZRV8SA1vKliR2YtNv8jVNuIhBBpLkmLyrp3oZEhWoAc6n4cElJshSZhc2EB5PDqS8xvC1UPFl9LrtxQR0uoy+4xRNyzbZwn2XErM+1iLyACzsUhMlAbjRujomDxpXuHcP4Rs6x6ai+TIMyRbI83PDydZQpd/Kd+YrEis3Ex/5tDTCM/Wqdy5NH+eStyxQIDAQAB",
   "description": "一款简单的编码/解码工具",
   "icons": {
     "16": "static/img/logo-16.png",
@@ -22,6 +21,10 @@
     "default_title": "Flee",
     "default_popup": "index.html"
   },
-  "permissions": ["downloads" ]
-  
+  "host_permissions": ["https://md5.hsm.cool/*"],
+  "permissions": ["downloads"],
+  "background": {
+    "service_worker": "background.js"
+  }
+
 }

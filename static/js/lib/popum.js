@@ -25,14 +25,32 @@ function clearLocalStorage() {
 
 
 
+function flee_base32_decode(flee_string) {
+  var encode;
+  try {
+    encode = base32.decode(flee_string);
+  } catch (error) {
+    encode = error;
+  }
+  return encode;
+}
 
+function flee_base32_encode(flee_string) {
+  var encode;
+  try {
+    encode = base32.encode(flee_string);
+  } catch (error) {
+    encode = error;
+  }
+  return encode;
+}
 
 // ============== Main ==============
 
 function clearForm() {
   // 清空输出框
   $("#base64_output").val("");
-  $("#md5_output").val("");
+  $("#base32_output").val("");
   $("#utf-8_output").val("");
   $("#url_output").val("");
   $("#unicode_output").val("");
@@ -55,20 +73,20 @@ function mainEncode() {
 
   if(str== ""){
     $("#base64_output").val("");
-    $("#md5_output").val("");
+    $("#base32_output").val("");
     $("#utf-8_output").val("");
     $("#url_output").val("");
     $("#unicode_output").val("");
     $("#char_and_16_output").val("");
     return false;
   }
-  // md5
+  // base32
   try {
-    var str_md5 = md5(str);
+    var str_base32 = flee_base32_encode(str);
   } catch(error){
     var decodeString = error;
   } finally {
-    $("#md5_output").val(str_md5);
+    $("#base32_output").val(str_base32);
   }
 
   // base64
@@ -161,6 +179,14 @@ function mainDecode() {
   } finally {
     $("#utf-8_output").val(str_utf_8);
   }
+   // md5 
+  try {
+    var result = flee_base32_decode(str);
+  } catch(error){
+    var result = error;
+  } finally {
+    $("#base32_output").val(result);
+  }
 //   console.log(fromUTF8(toUTF8('hello')));
 //   console.log(fromUTF8(toUTF8('你好')));
   //   decodeURIComponent(x);
@@ -213,4 +239,22 @@ if(result != null){
     mainEncode();
   }
   
+}
+
+// JavaScript 代码
+function copyText(id) {
+  // 获取输入框元素
+  var input = document.getElementById(id);
+
+  // 选中输入框中的文本
+  input.select();
+
+  // 复制文本
+  document.execCommand('copy');
+
+  // 取消选中状态
+  window.getSelection().removeAllRanges();
+
+  // 提示复制成功
+  alert('已复制到剪贴板！');
 }

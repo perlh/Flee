@@ -481,6 +481,15 @@ function flee_main() {
         output_result = base92_decode(input_textarea);
         break;
       }
+      case "md5":{
+        if(isMd5(input_textarea)){
+          $("#output_textarea").val("查询中...");
+          md5_decode(input_textarea);
+        }else{
+          $("#output_textarea").val("输入不是md5格式！");
+        }
+        break;
+      }
       default: {
         output_result = "Decode Not exist！";
         // $("#output_textarea").css('color', 'red');
@@ -489,10 +498,19 @@ function flee_main() {
   }
   
   // alert(output_result);
-  output_textarea.val(output_result);
-  // alert("ddd");
-  // $("#output_textarea").text("ddd");
+  if(flee_encoding_select!="md5"|| opration!="decode"){
+    output_textarea.val(output_result);
+  }
+  
 }
+function isMd5(value) {
+  /*
+   * 判断字符串是否为 MD5 值
+   */
+  var pattern = /^[a-fA-F0-9]{32}$/;
+  return pattern.test(value);
+}
+
 
 // 立即执行
 $(document).ready(function () {
@@ -521,3 +539,33 @@ $(document).ready(function () {
     flee_main();
   });
 });
+
+
+
+function md5_decode(hash) {  // 通过chrome.runtime.sendMessage发送消息给background.js
+  fetch('https://md5.hsm.cool/api?hash='+hash)
+      .then(response => {
+          // console.log('Response status:', response.status);
+          // if(response.status!=200){
+          //     return 
+          // }
+          // alert(response.status)
+          // if(response.status!=200){
+          //   return 
+          // }
+          return response.json();
+      })
+      .then(data => {
+          // console.log('Hash:', data.hash);
+          // alert(data)
+          if(data.status==true){
+            $("#output_textarea").val(data.data);
+          }else{
+            $("#output_textarea").val("未找到md5解密值！");
+          }
+      })
+      .catch(error => {
+          return error;
+      });
+      // alert(result1.data)
+}

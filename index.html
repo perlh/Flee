@@ -2,10 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src * 'unsafe-inline'"
-    />
     <style>
       html {
         min-height: 50rem;
@@ -39,7 +35,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="/index.html" draggable="false">常用</a>
+            <a class="nav-link" href="/index.html">常用</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/decode.html" draggable="false">编码</a>
@@ -119,23 +115,27 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12" style="margin-bottom: 0.2rem">
-          <span class="badge badge-secondary">MD5：</span>
-          <textarea
-            id="md5_output"
-            class="form-control"
-            rows="1"
-            disabled
-            style="resize: none"
-          ></textarea>
-        </div>
-      </div>
+
       <div class="row">
         <div class="col-12" style="margin-bottom: 0.2rem">
           <span class="badge badge-secondary">Base64：</span>
           <textarea
             id="base64_output"
+            class="form-control"
+            rows="2"
+            onclick="copyText"
+            disabled
+          ></textarea>
+        </div>
+        <!-- <div class="col-2" style="margin-bottom: 0.2rem">
+          <button class="btn" onclick="copyText()">复制</button>
+        </div> -->
+      </div>
+      <div class="row">
+        <div class="col-12" style="margin-bottom: 0.2rem">
+          <span class="badge badge-secondary">Base32：</span>
+          <textarea
+            id="base32_output"
             class="form-control"
             rows="2"
             disabled
@@ -196,15 +196,17 @@
       </div>
       <div class="row">
         <div class="col-12" style="height: 0.2rem">
+
           <hr />
         </div>
       </div>
     </div>
   </body>
-
+  <script src="static/js/DecodeJS/base32.js"></script>
   <script src="static/js/DecodeJS/base64.js"></script>
   <script src="static/js/DecodeJS/md5.js"></script>
   <script src="static/js/DecodeJS/hex2string.js"></script>
   <script src="static/js/DecodeJS/unicode.js"></script>
   <script src="static/js/lib/popum.js"></script>
+  <script src="static/js/lib/index.js"></script>
 </html>
