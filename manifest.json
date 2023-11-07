@@ -1,30 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Flee",
-  "version": "2.0",
-  "author": "贺述明",
-  "description": "一款简单的编码/解码工具",
+  "version": "3.0",
+  "author": "HSM",
+  "description": "一款简单的编码、解码工具",
   "icons": {
-    "16": "static/img/logo-16.png",
-    "19": "static/img/logo-19.png",
-    "38": "static/img/logo-38.png",
-    "48": "static/img/logo-48.png",
-    "128": "static/img/logo-128.png"
+    "128": "theme/icon/logo.png"
   },
 
   "action": {
-    "default_icon": {
-      "16": "static/img/logo-16.png",
-      "24": "static/img/logo-24.png",
-      "32": "static/img/logo-32.png"
-    },
     "default_title": "Flee",
-    "default_popup": "index.html"
+    "default_popup": "theme/index.html"
   },
   "host_permissions": ["https://md5.hsm.cool/*"],
-  "permissions": ["downloads"],
-  "background": {
-    "service_worker": "background.js"
-  }
+  "permissions": ["downloads"]
 
 }
