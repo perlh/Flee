@@ -66,10 +66,10 @@ function saveToLocalStorage(key, value) {
     // 显示编码成功
     // $('#status').css('display', 'block');
     if(str == ""){
-      $('#input_status').text("Input is empty!");
+      $('#input_status').text("输入不能为空！");
       return;
     }
-    $('#input_status').text("Encode success！");
+    $('#input_status').text("编码");
   
     if(str== ""){
       $("#base64_output").val("");
@@ -135,10 +135,10 @@ function saveToLocalStorage(key, value) {
     // 显示编码成功
     // $('#status').css('display', 'block');
     if(str == ""){
-      $('#input_status').text("Input is empty!");
+      $('#input_status').text("输入不能为空！");
       return;
     }
-    $('#input_status').text("Decode success！");
+    $('#input_status').text("解码");
     // base64
     try {
       // var decodeString = base64.decode(str);
@@ -204,9 +204,7 @@ function saveToLocalStorage(key, value) {
     $("#input_text").val("");
         // 显示编码成功
     // $('#status').css('display', 'none');
-    $('#input_status').text("Enter the character you want to encode/decode in the first text box above.");
-    
-  
+    $('#input_status').text("请在上面文本框输入要编码的文本");
   }
   
   
