@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Flee",
-  "version": "3.0",
-  "author": "HSM",
+  "version": "3.1",
+  "author": "heool",
   "description": "一款简单的编码、解码工具",
   "icons": {
     "128": "theme/icon/logo.png"
