@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Flee2",
-  "version": "3.2",
+  "version": "3.3",
   "author": "heool",
   "description": "一款简单的编码、解码工具",
   "icons": {
